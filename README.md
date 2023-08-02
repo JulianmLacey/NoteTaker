@@ -35,7 +35,10 @@ The following animation demonstrates the application functionality:
 
 ## Live Demo
 
-A Live Demo Can be Found [Here](https://julianmlacey.github.io/NoteTaker/)
+A Live Demo Can be Found [Here](https://julianmlacey.github.io/NoteTaker/](https://blooming-garden-60738-00b868f1d491.herokuapp.com/)
+
+https://github.com/JulianmLacey/NoteTaker/assets/117090683/47ed54fc-a8a7-4b1e-a7fb-a9b2bbfa25b3
+
 
 ## License
 
