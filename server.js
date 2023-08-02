@@ -10,18 +10,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-/*
-Get /notes - notes.html
-Get * - index.html
-
-Get .api/notes - return all notes as json
-
-*/
-
+// Route To main application
 app.get("/notes", (req, res) => {
 	res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
+//API Route to get saved notes
 app.get("/api/notes", (req, res) => {
 	fs.readFile("./db/db.json", "utf-8", (error, data) => {
 		error ? console.error("error updating the data") : console.log("File Read for render");
@@ -29,10 +23,13 @@ app.get("/api/notes", (req, res) => {
 		res.json(notes);
 	});
 });
+
+//wildcard route
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
+//API POST route to save notes
 app.post("/api/notes", (req, res) => {
 	let newNote = req.body;
 	newNote.id = uuidv4();
@@ -51,6 +48,7 @@ app.post("/api/notes", (req, res) => {
 	});
 });
 
+//API DELETE route to delete notes
 app.delete("/api/notes/:id", (req, res) => {
 	let noteId = req.params.id;
 	fs.readFile("./db/db.json", "utf8", (err, data) => {
